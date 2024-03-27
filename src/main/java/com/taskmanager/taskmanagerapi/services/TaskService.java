@@ -30,5 +30,17 @@ public class TaskService {
     public void delete(Long id){
         repostiory.deleteById(id);
     }
+
+    public Task update(Long id, Task obj){
+        Task entity = repostiory.getReferenceById(id);
+        updateData(entity, obj);
+        return repostiory.save(entity);
+    }
+
+    private void updateData(Task entity, Task obj) {
+        entity.setDescription(obj.getDescription());
+        entity.setDueDate(obj.getDueDate());
+        entity.setStatus(obj.getStatus());
+    }
 }
 
