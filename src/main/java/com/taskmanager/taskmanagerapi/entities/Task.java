@@ -6,6 +6,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tb_task")
@@ -18,7 +19,7 @@ public class Task implements Serializable {
 
     private String description;
 
-    private LocalDate dueDate;
+    private LocalDateTime dueDate;
 
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
@@ -26,10 +27,10 @@ public class Task implements Serializable {
     public Task(){
 
     }
-    public Task(Long id, String description, LocalDate dueDate, TaskStatus status) {
+    public Task(Long id, String description, LocalDateTime dueDateTime, TaskStatus status) {
         this.id = id;
         this.description = description;
-        this.dueDate = dueDate;
+        this.dueDate = dueDateTime;
         this.status = status;
     }
 
