@@ -2,7 +2,7 @@ package com.taskmanager.taskmanagerapi.config;
 
 import com.taskmanager.taskmanagerapi.entities.Task;
 import com.taskmanager.taskmanagerapi.entities.enums.TaskStatus;
-import com.taskmanager.taskmanagerapi.repositories.TaskRepostiory;
+import com.taskmanager.taskmanagerapi.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class TestConfig implements CommandLineRunner {
 
     @Autowired
-    private TaskRepostiory taskRepostiory;
+    private TaskRepository taskRepostiory;
     @Override
     public void run(String... args) throws Exception {
 

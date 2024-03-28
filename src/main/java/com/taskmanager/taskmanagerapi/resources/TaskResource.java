@@ -4,12 +4,13 @@ import com.taskmanager.taskmanagerapi.entities.Task;
 import com.taskmanager.taskmanagerapi.services.TaskService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import org.springframework.data.domain.Pageable;
 import java.net.URI;
-import java.util.List;
 
 @RestController
 @RequestMapping(value = "/tasks")
@@ -19,9 +20,9 @@ public class TaskResource {
     private TaskService service;
 
     @GetMapping
-    public ResponseEntity<List<Task>> findAll(){
-        List<Task> list = service.findAll();
-        return ResponseEntity.ok().body(list);
+    public ResponseEntity<Page<Task>> findAll(Pageable pageable){
+        Page<Task> page = service.findAll(pageable);
+        return ResponseEntity.ok().body(page);
     }
     @GetMapping(value = "/{id}")
     public ResponseEntity<Task> findById(@PathVariable Long id){
