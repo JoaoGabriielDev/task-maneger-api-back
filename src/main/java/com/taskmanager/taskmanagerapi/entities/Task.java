@@ -18,17 +18,20 @@ public class Task implements Serializable {
 
     private String description;
 
+    private String code;
+
     private LocalDateTime dueDate;
 
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
-    public Task(){
+    public Task(Task data){
 
     }
-    public Task(Long id, String description, LocalDateTime dueDateTime, TaskStatus status) {
+    public Task(Long id, String description, String code, LocalDateTime dueDateTime, TaskStatus status) {
         this.id = id;
         this.description = description;
+        this.code = code;
         this.dueDate = dueDateTime;
         this.status = status;
     }

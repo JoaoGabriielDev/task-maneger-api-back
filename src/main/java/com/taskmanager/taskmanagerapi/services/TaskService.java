@@ -18,12 +18,11 @@ public class TaskService {
     public Page<Task> findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
-    
+
     public Task findById(Long id){
         Optional<Task> obj = repository.findById(id);
         return obj.get();
     }
-
     public Task insert(Task obj){
         return obj = repository.save(obj);
     }
@@ -37,7 +36,6 @@ public class TaskService {
         updateData(entity, obj);
         return repository.save(entity);
     }
-
     private void updateData(Task entity, Task obj) {
         entity.setDescription(obj.getDescription());
         entity.setDueDate(obj.getDueDate());
